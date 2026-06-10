@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import helmet from "helmet";
 import morgan from "morgan";
+import patientRoutes from "./routes/patientRoutes";
 
 const app = express();
 
@@ -15,5 +16,10 @@ app.get("/", (req, res) => {
     message: "Healthcare API Running"
   });
 });
+
+app.use(
+  "/api/healthcare/patients",
+  patientRoutes
+);
 
 export default app;
